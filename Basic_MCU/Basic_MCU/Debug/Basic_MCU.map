@@ -2,20 +2,21 @@ Archive member included to satisfy reference by file (symbol)
 
 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
                               H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o (exit)
-h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
-                              KeyPadTest2.o (__do_copy_data)
 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
-                              KeyPadTest2.o (__do_clear_bss)
+                              main.o (__do_clear_bss)
+
+Allocating common symbols
+Common symbol       size              file
+
+val                 0x1               main.o
 
 Discarded input sections
 
  .data          0x00000000        0x0 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .bss           0x00000000        0x0 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .text          0x00000000        0x0 KeyPadTest2.o
- .data          0x00000000        0x0 KeyPadTest2.o
- .bss           0x00000000        0x0 KeyPadTest2.o
- .text.Output   0x00000000      0x134 KeyPadTest2.o
- .bss.oldkey    0x00000000        0x2 KeyPadTest2.o
+ .text          0x00000000        0x0 main.o
+ .data          0x00000000        0x0 main.o
+ .bss           0x00000000        0x0 main.o
  .text          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  .data          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
@@ -32,22 +33,6 @@ Discarded input sections
                 0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
- .text          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .data          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .bss           0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc.mul
-                0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc.div
-                0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc   0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc.prologue
-                0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc.builtins
-                0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc.fmul
-                0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
- .text.libgcc.fixed
-                0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
  .text          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
  .data          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
  .bss           0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
@@ -81,7 +66,7 @@ Linker script and memory map
 
 Address of section .data set to 0x800100
 LOAD H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
-LOAD KeyPadTest2.o
+LOAD main.o
 START GROUP
 LOAD h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr51\libm.a
 END GROUP
@@ -191,7 +176,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x344
+.text           0x00000000      0x340
  *(.vectors)
  .vectors       0x00000000       0x8c H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
                 0x00000000                __vector_default
@@ -232,10 +217,8 @@ END GROUP
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000098       0x1a h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
-                0x00000098                __do_copy_data
- .init4         0x000000b2       0x10 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
-                0x000000b2                __do_clear_bss
+ .init4         0x00000098       0x10 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
+                0x00000098                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -246,61 +229,65 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x000000c2        0x4 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
+ .init9         0x000000a8        0x4 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  *(.init9)
  *(.text)
- .text          0x000000c6        0x2 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
-                0x000000c6                __vector_22
-                0x000000c6                __vector_28
-                0x000000c6                __vector_1
-                0x000000c6                __vector_32
-                0x000000c6                __vector_34
-                0x000000c6                __vector_24
-                0x000000c6                __vector_12
-                0x000000c6                __bad_interrupt
-                0x000000c6                __vector_6
-                0x000000c6                __vector_31
-                0x000000c6                __vector_3
-                0x000000c6                __vector_23
-                0x000000c6                __vector_30
-                0x000000c6                __vector_25
-                0x000000c6                __vector_11
-                0x000000c6                __vector_13
-                0x000000c6                __vector_17
-                0x000000c6                __vector_19
-                0x000000c6                __vector_7
-                0x000000c6                __vector_27
-                0x000000c6                __vector_5
-                0x000000c6                __vector_33
-                0x000000c6                __vector_4
-                0x000000c6                __vector_9
-                0x000000c6                __vector_2
-                0x000000c6                __vector_21
-                0x000000c6                __vector_15
-                0x000000c6                __vector_29
-                0x000000c6                __vector_8
-                0x000000c6                __vector_26
-                0x000000c6                __vector_14
-                0x000000c6                __vector_10
-                0x000000c6                __vector_16
-                0x000000c6                __vector_18
-                0x000000c6                __vector_20
-                0x000000c8                . = ALIGN (0x2)
+ .text          0x000000ac        0x2 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
+                0x000000ac                __vector_22
+                0x000000ac                __vector_28
+                0x000000ac                __vector_1
+                0x000000ac                __vector_32
+                0x000000ac                __vector_34
+                0x000000ac                __vector_24
+                0x000000ac                __vector_12
+                0x000000ac                __bad_interrupt
+                0x000000ac                __vector_6
+                0x000000ac                __vector_31
+                0x000000ac                __vector_3
+                0x000000ac                __vector_23
+                0x000000ac                __vector_30
+                0x000000ac                __vector_25
+                0x000000ac                __vector_11
+                0x000000ac                __vector_13
+                0x000000ac                __vector_17
+                0x000000ac                __vector_19
+                0x000000ac                __vector_7
+                0x000000ac                __vector_27
+                0x000000ac                __vector_5
+                0x000000ac                __vector_33
+                0x000000ac                __vector_4
+                0x000000ac                __vector_9
+                0x000000ac                __vector_2
+                0x000000ac                __vector_21
+                0x000000ac                __vector_15
+                0x000000ac                __vector_29
+                0x000000ac                __vector_8
+                0x000000ac                __vector_26
+                0x000000ac                __vector_14
+                0x000000ac                __vector_10
+                0x000000ac                __vector_16
+                0x000000ac                __vector_18
+                0x000000ac                __vector_20
+                0x000000ae                . = ALIGN (0x2)
  *(.text.*)
- .text.KeyPad   0x000000c8      0x138 KeyPadTest2.o
-                0x000000c8                KeyPad
- .text.M_start  0x00000200       0x2e KeyPadTest2.o
-                0x00000200                M_start
- .text.ComparePassword
-                0x0000022e       0x68 KeyPadTest2.o
-                0x0000022e                ComparePassword
- .text.main     0x00000296       0xaa KeyPadTest2.o
-                0x00000296                main
-                0x00000340                . = ALIGN (0x2)
+ .text.leftShift
+                0x000000ae       0xf8 main.o
+                0x000000ae                leftShift
+ .text.rightShift
+                0x000001a6       0xea main.o
+                0x000001a6                rightShift
+ .text.returnLED
+                0x00000290       0x5e main.o
+                0x00000290                returnLED
+ .text.TurnOFF  0x000002ee       0x18 main.o
+                0x000002ee                TurnOFF
+ .text.main     0x00000306       0x36 main.o
+                0x00000306                main
+                0x0000033c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000340        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x00000340                _exit
-                0x00000340                exit
+ .fini9         0x0000033c        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x0000033c                _exit
+                0x0000033c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -319,54 +306,40 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000340        0x4 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x0000033c        0x4 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000344                _etext = .
+                0x00000340                _etext = .
 
-.data           0x00800100        0x8 load address 0x00000344
-                0x00800100                PROVIDE (__data_start, .)
+.data           0x00800100        0x0 load address 0x00000340
+                [!provide]                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
- .data.old_input_start
-                0x00800100        0x1 KeyPadTest2.o
-                0x00800100                old_input_start
- .data.input_start
-                0x00800101        0x1 KeyPadTest2.o
-                0x00800101                input_start
- .data.password
-                0x00800102        0x4 KeyPadTest2.o
-                0x00800102                password
- .data.key      0x00800106        0x2 KeyPadTest2.o
-                0x00800106                key
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  *(.gnu.linkonce.r*)
-                0x00800108                . = ALIGN (0x2)
-                0x00800108                _edata = .
-                0x00800108                PROVIDE (__data_end, .)
+                0x00800100                . = ALIGN (0x2)
+                0x00800100                _edata = .
+                [!provide]                PROVIDE (__data_end, .)
 
-.bss            0x00800108        0x8
-                0x00800108                PROVIDE (__bss_start, .)
+.bss            0x00800100        0x2
+                0x00800100                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.m_cnt     0x00800108        0x2 KeyPadTest2.o
-                0x00800108                m_cnt
- .bss.arr_cnt   0x0080010a        0x2 KeyPadTest2.o
-                0x0080010a                arr_cnt
- .bss.Ispassword
-                0x0080010c        0x4 KeyPadTest2.o
-                0x0080010c                Ispassword
+ .bss.cnt       0x00800100        0x1 main.o
+                0x00800100                cnt
  *(COMMON)
-                0x00800110                PROVIDE (__bss_end, .)
-                0x00000344                __data_load_start = LOADADDR (.data)
-                0x0000034c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800101        0x1 main.o
+                0x00800101                val
+                0x00800102                PROVIDE (__bss_end, .)
+                0x00000340                __data_load_start = LOADADDR (.data)
+                0x00000340                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800110        0x0
+.noinit         0x00800102        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800110                _end = .
+                0x00800102                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -408,7 +381,7 @@ END GROUP
 
 .comment        0x00000000       0x30
  *(.comment)
- .comment       0x00000000       0x30 KeyPadTest2.o
+ .comment       0x00000000       0x30 main.o
                                  0x31 (size before relaxing)
 
 .note.gnu.avr.deviceinfo
@@ -434,39 +407,39 @@ END GROUP
 .debug_aranges  0x00000000       0x40
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0x40 KeyPadTest2.o
+                0x00000000       0x40 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000      0xdb9
+.debug_info     0x00000000      0xddd
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_info    0x00000780      0x639 KeyPadTest2.o
+ .debug_info    0x00000780      0x65d main.o
 
-.debug_abbrev   0x00000000      0x8a2
+.debug_abbrev   0x00000000      0x84d
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x718 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_abbrev  0x00000718      0x18a KeyPadTest2.o
+ .debug_abbrev  0x00000718      0x135 main.o
 
-.debug_line     0x00000000      0x5b4
+.debug_line     0x00000000      0x4df
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_line    0x00000169      0x44b KeyPadTest2.o
+ .debug_line    0x00000169      0x376 main.o
 
 .debug_frame    0x00000000       0x64
  *(.debug_frame)
- .debug_frame   0x00000000       0x64 KeyPadTest2.o
+ .debug_frame   0x00000000       0x64 main.o
 
-.debug_str      0x00000000      0x469
+.debug_str      0x00000000      0x430
  *(.debug_str)
  .debug_str     0x00000000      0x27d H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_str     0x0000027d      0x1ec KeyPadTest2.o
-                                0x235 (size before relaxing)
+ .debug_str     0x0000027d      0x1b3 main.o
+                                0x1e7 (size before relaxing)
 
-.debug_loc      0x00000000      0x4af
+.debug_loc      0x00000000      0x545
  *(.debug_loc)
- .debug_loc     0x00000000      0x4af KeyPadTest2.o
+ .debug_loc     0x00000000      0x545 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -488,9 +461,9 @@ END GROUP
 
 .debug_ranges   0x00000000       0x30
  *(.debug_ranges)
- .debug_ranges  0x00000000       0x30 KeyPadTest2.o
+ .debug_ranges  0x00000000       0x30 main.o
 
 .debug_macro
  *(.debug_macro)
-OUTPUT(KeyPad.elf elf32-avr)
+OUTPUT(Basic_MCU.elf elf32-avr)
 LOAD linker stubs

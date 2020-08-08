@@ -13,29 +13,40 @@
 int key=1;
 int oldkey=0;
 
+unsigned char password[4]={1,1,1,1};
+unsigned char Ispassword[4]={0};
+int arr_cnt = 0;
+int m_cnt = 0 ;
+unsigned char input_start = 1;
+unsigned char old_input_start=1;
+
 unsigned char KeyPad()
 {
 	PORTD = 0xFE; // 1111 1110
-	_delay_ms(2);
-	if((Keypadin & 0xF0) == 0xE0) // 1110 1111
-	{key = 0; return 1;}
-	if((Keypadin & 0xF0) == 0xD0) return 4; //1101 1111
-	if((Keypadin & 0xF0) == 0xB0) return 7; // 1011 1111
-	if((Keypadin & 0xF0) == 0x70) return '*';
+	_delay_ms(80);
+	if((Keypadin & 0xF0) == 0xE0) {key=0; return 1;} // 1110 1110 & 1111 0000 = 1110 0000
+	if((Keypadin & 0xF0) == 0xD0) {key=0; return 4;} //1101 1111
+	if((Keypadin & 0xF0) == 0xB0) {key=0; return 7;} // 1011 1111
+	if((Keypadin & 0xF0) == 0x70) 
+	{
+		old_input_start = !input_start;
+		input_start = old_input_start;
+		return '*';
+	}
 	
 	PORTD = 0xFD; // 1111 1101
-	_delay_ms(2);
-	if((Keypadin & 0xF0) == 0xE0) return 2;
-	if((Keypadin & 0xF0) == 0xD0) return 5;
-	if((Keypadin & 0xF0) == 0xB0) return 8;
-	if((Keypadin & 0xF0) == 0x70) return 0;
+	_delay_ms(80);
+	if((Keypadin & 0xF0) == 0xE0) {key=0; return 2;}
+	if((Keypadin & 0xF0) == 0xD0) {key=0; return 5;}
+	if((Keypadin & 0xF0) == 0xB0) {key=0; return 8;}
+	if((Keypadin & 0xF0) == 0x70) {key=0; return 0;}
 	
 	PORTD = 0xFB; // 1111 1011
-	_delay_ms(2);
-	if((Keypadin & 0xF0) == 0xE0) return 3;
-	if((Keypadin & 0xF0) == 0xD0) return 6;
-	if((Keypadin & 0xF0) == 0xB0) return 9;
-	if((Keypadin & 0xF0) == 0x70) return '#';
+	_delay_ms(80);
+	if((Keypadin & 0xF0) == 0xE0) {key=0; return 3;}
+	if((Keypadin & 0xF0) == 0xD0) {key=0; return 6;}
+	if((Keypadin & 0xF0) == 0xB0) {key=0; return 9;}
+	if((Keypadin & 0xF0) == 0x70) {key=0; return '#';}
 }
 
 void Output()
@@ -96,6 +107,8 @@ void Output()
 	}
 }
 
+
+
 int main()
 {
 	DDRD = 0x0F;
@@ -104,38 +117,42 @@ int main()
 	
 	PORTC = 0xFF;
 	PORTF = 0xFF;
-	
-	unsigned char password[4]={1,1,1,1};
-	unsigned char Ispassword[4]={0};
-	int i = 0;
-	int y = 0 ;
-	
 	while(1)
 	{
-		Ispassword[i]=KeyPad(); // 입력된 키패드를 배열에 대입하고 배열순서 증가
+		Ispassword[arr_cnt]=KeyPad(); // 입력된 키패드를 배열에 대입하고 배열순서 증가
 		
-		if(key==0) //다이얼을 누르면 if문으로 들어옴
+		if(key==0 && old_input_start==0) //다이얼을 누르면 if 안으로 들어옴
 		{
-			
-			if(i==3) // 지정된 암호길이
-			{
-				for (int x=0;x<4;x++)
-				{
-					if(password[x]==Ispassword[x]){y++;}
-				}
-			}
-			
-			i++;
-			PORTC = i;//확인
-			_delay_ms(100);
-		
-			key=1;
+			_delay_ms(10);
+			ComparePassword();
 		}
-		
-		if(y==4)
+		if(m_cnt==4 && old_input_start==1)
 		{
-			PORTF = 0x00;
-			_delay_ms(1000);
+			_delay_ms(10);
+			M_start();
 		}
 	}
+}
+void M_start(void)
+{
+	PORTF = 0x00;
+	_delay_ms(2000);
+	PORTF = 0xFF;
+	m_cnt=0;
+	arr_cnt=0;
+}
+void ComparePassword(void)
+{
+	if(arr_cnt==3) // 지정된 암호길이
+	{
+		for (int x=0;x<4;x++)
+		{
+			if(password[x]==Ispassword[x]){m_cnt++;}
+		}
+	}
+	arr_cnt++;
+	PORTC = arr_cnt;//확인
+	_delay_ms(100);
+	
+	key=1;
 }
