@@ -63,9 +63,9 @@ C_DEPS_AS_ARGS +=  \
 Lcd_4bit.d \
 main.d
 
-OUTPUT_FILE_PATH +=Serial_proteus.elf
+OUTPUT_FILE_PATH +=DoorLock.elf
 
-OUTPUT_FILE_PATH_AS_ARGS +=Serial_proteus.elf
+OUTPUT_FILE_PATH_AS_ARGS +=DoorLock.elf
 
 ADDITIONAL_DEPENDENCIES:=
 
@@ -117,13 +117,13 @@ all: $(OUTPUT_FILE_PATH) $(ADDITIONAL_DEPENDENCIES)
 $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER_SCRIPT_DEP)
 	@echo Building target: $@
 	@echo Invoking: AVR/GNU Linker : 5.4.0
-	$(QUOTE)H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="Serial_proteus.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mrelax -mmcu=atmega128 -B "H:\DEV\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega128"  
+	$(QUOTE)H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE) -o$(OUTPUT_FILE_PATH_AS_ARGS) $(OBJS_AS_ARGS) $(USER_OBJS) $(LIBS) -Wl,-Map="DoorLock.map" -Wl,--start-group -Wl,-lm  -Wl,--end-group -Wl,--gc-sections -mrelax -mmcu=atmega128 -B "H:\DEV\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\gcc\dev\atmega128"  
 	@echo Finished building target: $@
-	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "Serial_proteus.elf" "Serial_proteus.hex"
-	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "Serial_proteus.elf" "Serial_proteus.eep" || exit 0
-	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "Serial_proteus.elf" > "Serial_proteus.lss"
-	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "Serial_proteus.elf" "Serial_proteus.srec"
-	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "Serial_proteus.elf"
+	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  "DoorLock.elf" "DoorLock.hex"
+	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex "DoorLock.elf" "DoorLock.eep" || exit 0
+	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objdump.exe" -h -S "DoorLock.elf" > "DoorLock.lss"
+	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures "DoorLock.elf" "DoorLock.srec"
+	"H:\DEV\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-size.exe" "DoorLock.elf"
 	
 	
 
@@ -135,5 +135,5 @@ $(OUTPUT_FILE_PATH): $(OBJS) $(USER_OBJS) $(OUTPUT_FILE_DEP) $(LIB_DEP) $(LINKER
 clean:
 	-$(RM) $(OBJS_AS_ARGS) $(EXECUTABLES)  
 	-$(RM) $(C_DEPS_AS_ARGS)   
-	rm -rf "Serial_proteus.elf" "Serial_proteus.a" "Serial_proteus.hex" "Serial_proteus.lss" "Serial_proteus.eep" "Serial_proteus.map" "Serial_proteus.srec" "Serial_proteus.usersignatures"
+	rm -rf "DoorLock.elf" "DoorLock.a" "DoorLock.hex" "DoorLock.lss" "DoorLock.eep" "DoorLock.map" "DoorLock.srec" "DoorLock.usersignatures"
 	

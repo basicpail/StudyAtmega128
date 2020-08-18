@@ -5,8 +5,10 @@
  *  Author: PKNU
  */ 
 #define F_CPU 7372800
-#include<avr/io.h>
-#include<util/delay.h>
+#include <avr/io.h>
+#include <util/delay.h>
+#include <string.h>
+
 
 #define Keypadin PIND
 
@@ -149,6 +151,7 @@ void ComparePassword(void)
 		{
 			if(password[x]==Ispassword[x]){m_cnt++;}
 		}
+		strcmp
 	}
 	arr_cnt++;
 	PORTC = arr_cnt;//확인
