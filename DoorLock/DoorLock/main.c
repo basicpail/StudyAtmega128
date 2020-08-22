@@ -7,28 +7,28 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-#include "Lcd.h"
 #include <string.h>
+#include "Lcd.h"
+
 
 #define Keypadin PIND
 #define ModeSW PINB
 
+int arr_length=0;
 int key=1;
 int pw_length=6;
 int cmp;
 int Terminal=0;
 int Putch_int=0;
-
 int m_cnt=0;
+
 unsigned char input_start = 1;
 unsigned char old_input_start;
 
-
 Byte password[]="1111";
 Byte Ispassword[];
-Byte blank[6];
 
-int arr_length=0;
+
 
 Byte KeyPad()
 {

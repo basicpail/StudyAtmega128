@@ -12,7 +12,6 @@ h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4
 Allocating common symbols
 Common symbol       size              file
 
-blank               0x6               main.o
 old_input_start     0x1               main.o
 cmp                 0x2               main.o
 Ispassword          0x1               main.o
@@ -29,7 +28,6 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text.CmpPW    0x00000000       0x44 main.o
  .data.pw_length
                 0x00000000        0x2 main.o
  .text          0x00000000        0x0 h:/dev/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
@@ -401,41 +399,39 @@ END GROUP
  *(.rodata*)
  .rodata.str1.1
                 0x0080017a       0x7e main.o
-                                 0x7f (size before relaxing)
  *(.gnu.linkonce.r*)
                 0x008001f8                . = ALIGN (0x2)
                 0x008001f8                _edata = .
                 0x008001f8                PROVIDE (__data_end, .)
 
-.bss            0x008001f8       0x12
+.bss            0x008001f8        0xc
                 0x008001f8                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.arr_length
-                0x008001f8        0x2 main.o
-                0x008001f8                arr_length
- .bss.m_cnt     0x008001fa        0x2 main.o
-                0x008001fa                m_cnt
+ .bss.m_cnt     0x008001f8        0x2 main.o
+                0x008001f8                m_cnt
  .bss.Putch_int
-                0x008001fc        0x2 main.o
-                0x008001fc                Putch_int
- .bss.Terminal  0x008001fe        0x2 main.o
-                0x008001fe                Terminal
+                0x008001fa        0x2 main.o
+                0x008001fa                Putch_int
+ .bss.Terminal  0x008001fc        0x2 main.o
+                0x008001fc                Terminal
+ .bss.arr_length
+                0x008001fe        0x2 main.o
+                0x008001fe                arr_length
  *(COMMON)
- COMMON         0x00800200        0xa main.o
-                0x00800200                blank
-                0x00800206                old_input_start
-                0x00800207                cmp
-                0x00800209                Ispassword
-                0x0080020a                PROVIDE (__bss_end, .)
+ COMMON         0x00800200        0x4 main.o
+                0x00800200                old_input_start
+                0x00800201                cmp
+                0x00800203                Ispassword
+                0x00800204                PROVIDE (__bss_end, .)
                 0x00000790                __data_load_start = LOADADDR (.data)
                 0x00000888                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080020a        0x0
+.noinit         0x00800204        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080020a                _end = .
+                0x00800204                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -501,21 +497,21 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000       0xd0
+.debug_aranges  0x00000000       0xc8
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x58 Lcd_4bit.o
  .debug_aranges
-                0x00000058       0x78 main.o
+                0x00000058       0x70 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x196c
+.debug_info     0x00000000     0x18f9
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x780 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_info    0x00000780      0x590 Lcd_4bit.o
- .debug_info    0x00000d10      0xc5c main.o
+ .debug_info    0x00000d10      0xbe9 main.o
 
 .debug_abbrev   0x00000000      0xb18
  *(.debug_abbrev)
@@ -523,29 +519,29 @@ END GROUP
  .debug_abbrev  0x00000718      0x161 Lcd_4bit.o
  .debug_abbrev  0x00000879      0x29f main.o
 
-.debug_line     0x00000000      0xb02
+.debug_line     0x00000000      0xac3
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
  .debug_line    0x00000169      0x292 Lcd_4bit.o
- .debug_line    0x000003fb      0x707 main.o
+ .debug_line    0x000003fb      0x6c8 main.o
 
-.debug_frame    0x00000000      0x198
+.debug_frame    0x00000000      0x188
  *(.debug_frame)
  .debug_frame   0x00000000       0xa0 Lcd_4bit.o
- .debug_frame   0x000000a0       0xf8 main.o
+ .debug_frame   0x000000a0       0xe8 main.o
 
-.debug_str      0x00000000      0x553
+.debug_str      0x00000000      0x543
  *(.debug_str)
  .debug_str     0x00000000      0x27d H:/DEV/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.3.300/gcc/dev/atmega128/avr51/crtatmega128.o
- .debug_str     0x0000027d      0x1eb Lcd_4bit.o
-                                0x21f (size before relaxing)
- .debug_str     0x00000468       0xeb main.o
-                                0x2df (size before relaxing)
+ .debug_str     0x0000027d      0x1e7 Lcd_4bit.o
+                                0x21b (size before relaxing)
+ .debug_str     0x00000464       0xdf main.o
+                                0x2cf (size before relaxing)
 
-.debug_loc      0x00000000      0x95f
+.debug_loc      0x00000000      0x92b
  *(.debug_loc)
  .debug_loc     0x00000000      0x4a8 Lcd_4bit.o
- .debug_loc     0x000004a8      0x4b7 main.o
+ .debug_loc     0x000004a8      0x483 main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -565,10 +561,10 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xf8
+.debug_ranges   0x00000000       0xf0
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x48 Lcd_4bit.o
- .debug_ranges  0x00000048       0xb0 main.o
+ .debug_ranges  0x00000048       0xa8 main.o
 
 .debug_macro
  *(.debug_macro)

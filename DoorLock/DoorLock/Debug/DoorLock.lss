@@ -7,27 +7,27 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   1 .text         00000790  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  2 .bss          00000012  008001f8  008001f8  0000091c  2**0
+  2 .bss          0000000c  008001f8  008001f8  0000091c  2**0
                   ALLOC
   3 .comment      00000030  00000000  00000000  0000091c  2**0
                   CONTENTS, READONLY
   4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000094c  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000000d0  00000000  00000000  00000988  2**0
+  5 .debug_aranges 000000c8  00000000  00000000  00000988  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000196c  00000000  00000000  00000a58  2**0
+  6 .debug_info   000018f9  00000000  00000000  00000a50  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000b18  00000000  00000000  000023c4  2**0
+  7 .debug_abbrev 00000b18  00000000  00000000  00002349  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000b02  00000000  00000000  00002edc  2**0
+  8 .debug_line   00000ac3  00000000  00000000  00002e61  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000198  00000000  00000000  000039e0  2**2
+  9 .debug_frame  00000188  00000000  00000000  00003924  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000553  00000000  00000000  00003b78  2**0
+ 10 .debug_str    00000543  00000000  00000000  00003aac  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    0000095f  00000000  00000000  000040cb  2**0
+ 11 .debug_loc    0000092b  00000000  00000000  00003fef  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000000f8  00000000  00000000  00004a2a  2**0
+ 12 .debug_ranges 000000f0  00000000  00000000  0000491a  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -137,7 +137,7 @@ Disassembly of section .text:
   ba:	1d 92       	st	X+, r1
 
 000000bc <.do_clear_bss_start>:
-  bc:	aa 30       	cpi	r26, 0x0A	; 10
+  bc:	a4 30       	cpi	r26, 0x04	; 4
   be:	b2 07       	cpc	r27, r18
   c0:	e1 f7       	brne	.-8      	; 0xba <.do_clear_bss_loop>
   c2:	e2 d1       	rcall	.+964    	; 0x488 <main>
@@ -292,7 +292,7 @@ void LcdInit_4bit(void)
 
 00000198 <KeyPad>:
 
-int arr_length=0;
+
 
 Byte KeyPad()
 {
@@ -376,7 +376,7 @@ Byte KeyPad()
  20e:	90 91 05 01 	lds	r25, 0x0105	; 0x800105 <input_start>
  212:	91 11       	cpse	r25, r1
  214:	80 e0       	ldi	r24, 0x00	; 0
- 216:	80 93 06 02 	sts	0x0206, r24	; 0x800206 <old_input_start>
+ 216:	80 93 00 02 	sts	0x0200, r24	; 0x800200 <old_input_start>
 		input_start = old_input_start;
  21a:	80 93 05 01 	sts	0x0105, r24	; 0x800105 <input_start>
 		return 0;
@@ -526,13 +526,13 @@ void putch(unsigned char *data)
  31e:	5d 9b       	sbis	0x0b, 5	; 11
  320:	fe cf       	rjmp	.-4      	; 0x31e <putch>
 	unsigned char data2 = *(data+(Putch_int++));
- 322:	20 91 fc 01 	lds	r18, 0x01FC	; 0x8001fc <Putch_int>
- 326:	30 91 fd 01 	lds	r19, 0x01FD	; 0x8001fd <Putch_int+0x1>
+ 322:	20 91 fa 01 	lds	r18, 0x01FA	; 0x8001fa <Putch_int>
+ 326:	30 91 fb 01 	lds	r19, 0x01FB	; 0x8001fb <Putch_int+0x1>
  32a:	a9 01       	movw	r20, r18
  32c:	4f 5f       	subi	r20, 0xFF	; 255
  32e:	5f 4f       	sbci	r21, 0xFF	; 255
- 330:	50 93 fd 01 	sts	0x01FD, r21	; 0x8001fd <Putch_int+0x1>
- 334:	40 93 fc 01 	sts	0x01FC, r20	; 0x8001fc <Putch_int>
+ 330:	50 93 fb 01 	sts	0x01FB, r21	; 0x8001fb <Putch_int+0x1>
+ 334:	40 93 fa 01 	sts	0x01FA, r20	; 0x8001fa <Putch_int>
  338:	fc 01       	movw	r30, r24
  33a:	e2 0f       	add	r30, r18
  33c:	f3 1f       	adc	r31, r19
@@ -546,7 +546,7 @@ void putch(unsigned char *data)
 00000346 <_putch>:
 }
 
-void _putch(unsigned char data)
+void _putch(unsigned char data) //putch_str에 쓰기 위함
 {
 	while((UCSR0A & 0x20) == 0);
  346:	5d 9b       	sbis	0x0b, 5	; 11
@@ -620,11 +620,11 @@ void putch_str(char *str)
 void Put_into_arr(void)
 {
 	arr_length++;
- 380:	80 91 f8 01 	lds	r24, 0x01F8	; 0x8001f8 <__data_end>
- 384:	90 91 f9 01 	lds	r25, 0x01F9	; 0x8001f9 <__data_end+0x1>
+ 380:	80 91 fe 01 	lds	r24, 0x01FE	; 0x8001fe <arr_length>
+ 384:	90 91 ff 01 	lds	r25, 0x01FF	; 0x8001ff <arr_length+0x1>
  388:	01 96       	adiw	r24, 0x01	; 1
- 38a:	90 93 f9 01 	sts	0x01F9, r25	; 0x8001f9 <__data_end+0x1>
- 38e:	80 93 f8 01 	sts	0x01F8, r24	; 0x8001f8 <__data_end>
+ 38a:	90 93 ff 01 	sts	0x01FF, r25	; 0x8001ff <arr_length+0x1>
+ 38e:	80 93 fe 01 	sts	0x01FE, r24	; 0x8001fe <arr_length>
 
 	PORTC = 0xFE; //디버깅용
  392:	8e ef       	ldi	r24, 0xFE	; 254
@@ -644,7 +644,7 @@ void Put_into_arr(void)
  3aa:	85 bb       	out	0x15, r24	; 21
 	
 	Lcd_STR(Ispassword);
- 3ac:	89 e0       	ldi	r24, 0x09	; 9
+ 3ac:	83 e0       	ldi	r24, 0x03	; 3
  3ae:	92 e0       	ldi	r25, 0x02	; 2
  3b0:	bd de       	rcall	.-646    	; 0x12c <Lcd_STR>
 	key=1;
@@ -662,11 +662,11 @@ int ComparePassword()
 	cmp = strcmp(Ispassword,password);
  3c0:	60 e0       	ldi	r22, 0x00	; 0
  3c2:	71 e0       	ldi	r23, 0x01	; 1
- 3c4:	89 e0       	ldi	r24, 0x09	; 9
+ 3c4:	83 e0       	ldi	r24, 0x03	; 3
  3c6:	92 e0       	ldi	r25, 0x02	; 2
  3c8:	d8 d1       	rcall	.+944    	; 0x77a <strcmp>
- 3ca:	90 93 08 02 	sts	0x0208, r25	; 0x800208 <cmp+0x1>
- 3ce:	80 93 07 02 	sts	0x0207, r24	; 0x800207 <cmp>
+ 3ca:	90 93 02 02 	sts	0x0202, r25	; 0x800202 <cmp+0x1>
+ 3ce:	80 93 01 02 	sts	0x0201, r24	; 0x800201 <cmp>
 	
 	return cmp;
 }
@@ -679,9 +679,9 @@ int ComparePassword()
 
 void PW_Clear()
 {
- 3d4:	e9 e0       	ldi	r30, 0x09	; 9
+ 3d4:	e3 e0       	ldi	r30, 0x03	; 3
  3d6:	f2 e0       	ldi	r31, 0x02	; 2
- 3d8:	89 e1       	ldi	r24, 0x19	; 25
+ 3d8:	83 e1       	ldi	r24, 0x13	; 19
  3da:	92 e0       	ldi	r25, 0x02	; 2
 	for(int x=0;x<16;x++)
 	{
@@ -703,7 +703,7 @@ void PW_Clear()
  3e4:	08 95       	ret
 
 000003e6 <M_start>:
-}
+
 
 void M_start(void)
 {
@@ -760,12 +760,12 @@ void M_start(void)
  430:	93 de       	rcall	.-730    	; 0x158 <Lcd_Clear>
 	PW_Clear();
  432:	d0 df       	rcall	.-96     	; 0x3d4 <PW_Clear>
- 434:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <m_cnt+0x1>
+ 434:	10 92 f9 01 	sts	0x01F9, r1	; 0x8001f9 <__data_end+0x1>
 	m_cnt=0;
- 438:	10 92 fa 01 	sts	0x01FA, r1	; 0x8001fa <m_cnt>
- 43c:	10 92 f9 01 	sts	0x01F9, r1	; 0x8001f9 <__data_end+0x1>
+ 438:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <__data_end>
+ 43c:	10 92 ff 01 	sts	0x01FF, r1	; 0x8001ff <arr_length+0x1>
 	arr_length=0;
- 440:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <__data_end>
+ 440:	10 92 fe 01 	sts	0x01FE, r1	; 0x8001fe <arr_length>
  444:	08 95       	ret
 
 00000446 <Incorrect>:
@@ -805,12 +805,12 @@ void Incorrect()
  472:	72 de       	rcall	.-796    	; 0x158 <Lcd_Clear>
 	PW_Clear();
  474:	af df       	rcall	.-162    	; 0x3d4 <PW_Clear>
- 476:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <m_cnt+0x1>
+ 476:	10 92 f9 01 	sts	0x01F9, r1	; 0x8001f9 <__data_end+0x1>
 	m_cnt=0;
- 47a:	10 92 fa 01 	sts	0x01FA, r1	; 0x8001fa <m_cnt>
- 47e:	10 92 f9 01 	sts	0x01F9, r1	; 0x8001f9 <__data_end+0x1>
+ 47a:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <__data_end>
+ 47e:	10 92 ff 01 	sts	0x01FF, r1	; 0x8001ff <arr_length+0x1>
 	arr_length=0;
- 482:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <__data_end>
+ 482:	10 92 fe 01 	sts	0x01FE, r1	; 0x8001fe <arr_length>
  486:	08 95       	ret
 
 00000488 <main>:
@@ -834,7 +834,7 @@ int main(void)
 	DDRD = 0x0F; //keypad
  49e:	8f e0       	ldi	r24, 0x0F	; 15
  4a0:	81 bb       	out	0x11, r24	; 17
-	DDRA = 0xFF; //lcd
+	DDRA = 0xFF; //Lcd
  4a2:	1f ef       	ldi	r17, 0xFF	; 255
  4a4:	1a bb       	out	0x1a, r17	; 26
 	
@@ -955,19 +955,19 @@ int main(void)
  538:	df 2e       	mov	r13, r31
  53a:	f0 2d       	mov	r31, r0
  53c:	0f 2e       	mov	r0, r31
- 53e:	fa e0       	ldi	r31, 0x0A	; 10
+ 53e:	f4 e0       	ldi	r31, 0x04	; 4
  540:	4f 2e       	mov	r4, r31
  542:	f2 e0       	ldi	r31, 0x02	; 2
  544:	5f 2e       	mov	r5, r31
  546:	f0 2d       	mov	r31, r0
  548:	0f 2e       	mov	r0, r31
- 54a:	fb e0       	ldi	r31, 0x0B	; 11
+ 54a:	f5 e0       	ldi	r31, 0x05	; 5
  54c:	6f 2e       	mov	r6, r31
  54e:	f2 e0       	ldi	r31, 0x02	; 2
  550:	7f 2e       	mov	r7, r31
  552:	f0 2d       	mov	r31, r0
  554:	0f 2e       	mov	r0, r31
- 556:	fc e0       	ldi	r31, 0x0C	; 12
+ 556:	f6 e0       	ldi	r31, 0x06	; 6
  558:	8f 2e       	mov	r8, r31
  55a:	f2 e0       	ldi	r31, 0x02	; 2
  55c:	9f 2e       	mov	r9, r31
@@ -1020,11 +1020,11 @@ int main(void)
  598:	0e 96       	adiw	r24, 0x0e	; 14
  59a:	dd de       	rcall	.-582    	; 0x356 <putch_str>
 			Terminal = 1;
- 59c:	f0 92 ff 01 	sts	0x01FF, r15	; 0x8001ff <Terminal+0x1>
- 5a0:	e0 92 fe 01 	sts	0x01FE, r14	; 0x8001fe <Terminal>
+ 59c:	f0 92 fd 01 	sts	0x01FD, r15	; 0x8001fd <Terminal+0x1>
+ 5a0:	e0 92 fc 01 	sts	0x01FC, r14	; 0x8001fc <Terminal>
 		}
 		
-		if((ModeSW & 0xFF) == 0x01)  //0000 0001키패드로 복귀
+		if((ModeSW & 0xFF) == 0x01)  //0000 0001 키패드로 복귀
  5a4:	86 b3       	in	r24, 0x16	; 22
  5a6:	81 30       	cpi	r24, 0x01	; 1
  5a8:	09 f0       	breq	.+2      	; 0x5ac <main+0x124>
@@ -1061,36 +1061,32 @@ int main(void)
  5d8:	be de       	rcall	.-644    	; 0x356 <putch_str>
 			
 			Terminal = 0;
- 5da:	10 92 ff 01 	sts	0x01FF, r1	; 0x8001ff <Terminal+0x1>
- 5de:	10 92 fe 01 	sts	0x01FE, r1	; 0x8001fe <Terminal>
+ 5da:	10 92 fd 01 	sts	0x01FD, r1	; 0x8001fd <Terminal+0x1>
+ 5de:	10 92 fc 01 	sts	0x01FC, r1	; 0x8001fc <Terminal>
  5e2:	06 c0       	rjmp	.+12     	; 0x5f0 <main+0x168>
 		}
 		
 		if(Terminal ==0)
- 5e4:	80 91 fe 01 	lds	r24, 0x01FE	; 0x8001fe <Terminal>
- 5e8:	90 91 ff 01 	lds	r25, 0x01FF	; 0x8001ff <Terminal+0x1>
+ 5e4:	80 91 fc 01 	lds	r24, 0x01FC	; 0x8001fc <Terminal>
+ 5e8:	90 91 fd 01 	lds	r25, 0x01FD	; 0x8001fd <Terminal+0x1>
  5ec:	89 2b       	or	r24, r25
 		{
-			Ispassword[arr_length] = KeyPad(); //arr_length,arr_cnt
+			Ispassword[arr_length] = KeyPad();
  5ee:	71 f5       	brne	.+92     	; 0x64c <main+0x1c4>
- 5f0:	00 91 f8 01 	lds	r16, 0x01F8	; 0x8001f8 <__data_end>
- 5f4:	10 91 f9 01 	lds	r17, 0x01F9	; 0x8001f9 <__data_end+0x1>
+ 5f0:	00 91 fe 01 	lds	r16, 0x01FE	; 0x8001fe <arr_length>
+ 5f4:	10 91 ff 01 	lds	r17, 0x01FF	; 0x8001ff <arr_length+0x1>
  5f8:	cf dd       	rcall	.-1122   	; 0x198 <KeyPad>
  5fa:	f8 01       	movw	r30, r16
- 5fc:	e7 5f       	subi	r30, 0xF7	; 247
+ 5fc:	ed 5f       	subi	r30, 0xFD	; 253
  5fe:	fd 4f       	sbci	r31, 0xFD	; 253
  600:	80 83       	st	Z, r24
-			//Lcd_STR(str4);
-			//PW_Clear();
-			//}
-			//
-			//}
+			
 			if(key==0 && old_input_start==0)
  602:	80 91 06 01 	lds	r24, 0x0106	; 0x800106 <key>
  606:	90 91 07 01 	lds	r25, 0x0107	; 0x800107 <key+0x1>
  60a:	89 2b       	or	r24, r25
  60c:	59 f4       	brne	.+22     	; 0x624 <main+0x19c>
- 60e:	80 91 06 02 	lds	r24, 0x0206	; 0x800206 <old_input_start>
+ 60e:	80 91 00 02 	lds	r24, 0x0200	; 0x800200 <old_input_start>
  612:	81 11       	cpse	r24, r1
  614:	1b c0       	rjmp	.+54     	; 0x64c <main+0x1c4>
  616:	8f ef       	ldi	r24, 0xFF	; 255
@@ -1110,12 +1106,8 @@ int main(void)
  628:	90 91 07 01 	lds	r25, 0x0107	; 0x800107 <key+0x1>
  62c:	01 97       	sbiw	r24, 0x01	; 1
  62e:	71 f4       	brne	.+28     	; 0x64c <main+0x1c4>
- 630:	80 91 06 02 	lds	r24, 0x0206	; 0x800206 <old_input_start>
+ 630:	80 91 00 02 	lds	r24, 0x0200	; 0x800200 <old_input_start>
 			{
-				//PORTC = 0xFE;
-				//_delay_ms(100);
-				//PORTC = 0xFF; //디버깅
-				
 				if(!ComparePassword())
  634:	81 30       	cpi	r24, 0x01	; 1
  636:	51 f4       	brne	.+20     	; 0x64c <main+0x1c4>
@@ -1126,22 +1118,22 @@ int main(void)
  63c:	21 f4       	brne	.+8      	; 0x646 <main+0x1be>
  63e:	d3 de       	rcall	.-602    	; 0x3e6 <M_start>
 					old_input_start=0;
- 640:	10 92 06 02 	sts	0x0206, r1	; 0x800206 <old_input_start>
+ 640:	10 92 00 02 	sts	0x0200, r1	; 0x800200 <old_input_start>
  644:	03 c0       	rjmp	.+6      	; 0x64c <main+0x1c4>
 				}
 				else
 				{
 					Incorrect();
  646:	ff de       	rcall	.-514    	; 0x446 <Incorrect>
- 648:	10 92 06 02 	sts	0x0206, r1	; 0x800206 <old_input_start>
+ 648:	10 92 00 02 	sts	0x0200, r1	; 0x800200 <old_input_start>
 					old_input_start=0;
 				}
 			}
 		}
 		
 		if(Terminal == 1)
- 64c:	80 91 fe 01 	lds	r24, 0x01FE	; 0x8001fe <Terminal>
- 650:	90 91 ff 01 	lds	r25, 0x01FF	; 0x8001ff <Terminal+0x1>
+ 64c:	80 91 fc 01 	lds	r24, 0x01FC	; 0x8001fc <Terminal>
+ 650:	90 91 fd 01 	lds	r25, 0x01FD	; 0x8001fd <Terminal+0x1>
  654:	01 97       	sbiw	r24, 0x01	; 1
  656:	09 f0       	breq	.+2      	; 0x65a <main+0x1d2>
  658:	83 cf       	rjmp	.-250    	; 0x560 <main+0xd8>
@@ -1151,33 +1143,33 @@ int main(void)
  65c:	81 cf       	rjmp	.-254    	; 0x560 <main+0xd8>
 			{
 				Ispassword[arr_length] = getch();
- 65e:	00 91 f8 01 	lds	r16, 0x01F8	; 0x8001f8 <__data_end>
- 662:	10 91 f9 01 	lds	r17, 0x01F9	; 0x8001f9 <__data_end+0x1>
+ 65e:	00 91 fe 01 	lds	r16, 0x01FE	; 0x8001fe <arr_length>
+ 662:	10 91 ff 01 	lds	r17, 0x01FF	; 0x8001ff <arr_length+0x1>
  666:	74 de       	rcall	.-792    	; 0x350 <getch>
  668:	f8 01       	movw	r30, r16
- 66a:	e7 5f       	subi	r30, 0xF7	; 247
+ 66a:	ed 5f       	subi	r30, 0xFD	; 253
  66c:	fd 4f       	sbci	r31, 0xFD	; 253
 				arr_length++;
  66e:	80 83       	st	Z, r24
- 670:	80 91 f8 01 	lds	r24, 0x01F8	; 0x8001f8 <__data_end>
- 674:	90 91 f9 01 	lds	r25, 0x01F9	; 0x8001f9 <__data_end+0x1>
+ 670:	80 91 fe 01 	lds	r24, 0x01FE	; 0x8001fe <arr_length>
+ 674:	90 91 ff 01 	lds	r25, 0x01FF	; 0x8001ff <arr_length+0x1>
  678:	01 96       	adiw	r24, 0x01	; 1
- 67a:	90 93 f9 01 	sts	0x01F9, r25	; 0x8001f9 <__data_end+0x1>
- 67e:	80 93 f8 01 	sts	0x01F8, r24	; 0x8001f8 <__data_end>
+ 67a:	90 93 ff 01 	sts	0x01FF, r25	; 0x8001ff <arr_length+0x1>
+ 67e:	80 93 fe 01 	sts	0x01FE, r24	; 0x8001fe <arr_length>
 				putch(Ispassword);
- 682:	89 e0       	ldi	r24, 0x09	; 9
+ 682:	83 e0       	ldi	r24, 0x03	; 3
  684:	92 e0       	ldi	r25, 0x02	; 2
  686:	4b de       	rcall	.-874    	; 0x31e <putch>
 				Lcd_STR(Ispassword);
- 688:	89 e0       	ldi	r24, 0x09	; 9
+ 688:	83 e0       	ldi	r24, 0x03	; 3
  68a:	92 e0       	ldi	r25, 0x02	; 2
  68c:	4f dd       	rcall	.-1378   	; 0x12c <Lcd_STR>
 				if(Ispassword[arr_length-1]=='x')
- 68e:	80 91 f8 01 	lds	r24, 0x01F8	; 0x8001f8 <__data_end>
- 692:	90 91 f9 01 	lds	r25, 0x01F9	; 0x8001f9 <__data_end+0x1>
+ 68e:	80 91 fe 01 	lds	r24, 0x01FE	; 0x8001fe <arr_length>
+ 692:	90 91 ff 01 	lds	r25, 0x01FF	; 0x8001ff <arr_length+0x1>
  696:	01 97       	sbiw	r24, 0x01	; 1
  698:	fc 01       	movw	r30, r24
- 69a:	e7 5f       	subi	r30, 0xF7	; 247
+ 69a:	ed 5f       	subi	r30, 0xFD	; 253
  69c:	fd 4f       	sbci	r31, 0xFD	; 253
  69e:	20 81       	ld	r18, Z
 				{
@@ -1188,7 +1180,7 @@ int main(void)
  6a6:	fc 01       	movw	r30, r24
 					
 					if(!ComparePassword())
- 6a8:	e7 5f       	subi	r30, 0xF7	; 247
+ 6a8:	ed 5f       	subi	r30, 0xFD	; 253
  6aa:	fd 4f       	sbci	r31, 0xFD	; 253
  6ac:	10 82       	st	Z, r1
 					{
@@ -1211,8 +1203,8 @@ int main(void)
 						Putch_int = 0;
  6c4:	48 de       	rcall	.-880    	; 0x356 <putch_str>
  6c6:	8f de       	rcall	.-738    	; 0x3e6 <M_start>
- 6c8:	10 92 fd 01 	sts	0x01FD, r1	; 0x8001fd <Putch_int+0x1>
- 6cc:	10 92 fc 01 	sts	0x01FC, r1	; 0x8001fc <Putch_int>
+ 6c8:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <Putch_int+0x1>
+ 6cc:	10 92 fa 01 	sts	0x01FA, r1	; 0x8001fa <Putch_int>
 					}
 					else
 					{
@@ -1231,25 +1223,25 @@ int main(void)
  6e2:	39 de       	rcall	.-910    	; 0x356 <putch_str>
  6e4:	b0 de       	rcall	.-672    	; 0x446 <Incorrect>
 						Incorrect();
- 6e6:	10 92 fd 01 	sts	0x01FD, r1	; 0x8001fd <Putch_int+0x1>
+ 6e6:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <Putch_int+0x1>
 						
 						Putch_int = 0;
- 6ea:	10 92 fc 01 	sts	0x01FC, r1	; 0x8001fc <Putch_int>
- 6ee:	80 91 f8 01 	lds	r24, 0x01F8	; 0x8001f8 <__data_end>
+ 6ea:	10 92 fa 01 	sts	0x01FA, r1	; 0x8001fa <Putch_int>
+ 6ee:	80 91 fe 01 	lds	r24, 0x01FE	; 0x8001fe <arr_length>
 					}
 				}
 				
 				if(Ispassword[arr_length-1]=='c')
- 6f2:	90 91 f9 01 	lds	r25, 0x01F9	; 0x8001f9 <__data_end+0x1>
+ 6f2:	90 91 ff 01 	lds	r25, 0x01FF	; 0x8001ff <arr_length+0x1>
  6f6:	01 97       	sbiw	r24, 0x01	; 1
  6f8:	fc 01       	movw	r30, r24
- 6fa:	e7 5f       	subi	r30, 0xF7	; 247
+ 6fa:	ed 5f       	subi	r30, 0xFD	; 253
  6fc:	fd 4f       	sbci	r31, 0xFD	; 253
  6fe:	20 81       	ld	r18, Z
  700:	23 36       	cpi	r18, 0x63	; 99
  702:	09 f0       	breq	.+2      	; 0x706 <main+0x27e>
  704:	2d cf       	rjmp	.-422    	; 0x560 <main+0xd8>
- 706:	20 91 09 02 	lds	r18, 0x0209	; 0x800209 <Ispassword>
+ 706:	20 91 03 02 	lds	r18, 0x0203	; 0x800203 <Ispassword>
 				{
 					for (int x=0;x<4;x++)
 					{
@@ -1276,8 +1268,8 @@ int main(void)
  72a:	ff 4f       	sbci	r31, 0xFF	; 255
 					putch_str("\r\n");
  72c:	10 82       	st	Z, r1
- 72e:	10 92 fd 01 	sts	0x01FD, r1	; 0x8001fd <Putch_int+0x1>
- 732:	10 92 fc 01 	sts	0x01FC, r1	; 0x8001fc <Putch_int>
+ 72e:	10 92 fb 01 	sts	0x01FB, r1	; 0x8001fb <Putch_int+0x1>
+ 732:	10 92 fa 01 	sts	0x01FA, r1	; 0x8001fa <Putch_int>
 					putch_str("Change Complete!");
  736:	88 ea       	ldi	r24, 0xA8	; 168
  738:	91 e0       	ldi	r25, 0x01	; 1
@@ -1310,9 +1302,9 @@ int main(void)
  766:	f8 dc       	rcall	.-1552   	; 0x158 <Lcd_Clear>
 					_delay_ms(2000);
 					Lcd_Clear();
- 768:	10 92 f9 01 	sts	0x01F9, r1	; 0x8001f9 <__data_end+0x1>
+ 768:	10 92 ff 01 	sts	0x01FF, r1	; 0x8001ff <arr_length+0x1>
 					arr_length=0;
- 76c:	10 92 f8 01 	sts	0x01F8, r1	; 0x8001f8 <__data_end>
+ 76c:	10 92 fe 01 	sts	0x01FE, r1	; 0x8001fe <arr_length>
  770:	f7 ce       	rjmp	.-530    	; 0x560 <main+0xd8>
  772:	23 36       	cpi	r18, 0x63	; 99
  774:	09 f0       	breq	.+2      	; 0x778 <main+0x2f0>
